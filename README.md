@@ -62,6 +62,6 @@ Also it is possible to write custom styles in ```/resources/sass/_custom.scss```
 
 ### Hints
 
-To compile css and JavaScript ```npm run dev``` need to be executed in the project folder.
+To compile scss and JavaScript ```npm run dev``` need to be executed in the project folder.
 It is also possible to run ```npm run watch``` so it is not need to execute ```npm run dev``` every time a change happend. 
 
