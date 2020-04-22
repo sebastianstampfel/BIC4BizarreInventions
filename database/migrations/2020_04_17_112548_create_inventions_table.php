@@ -15,10 +15,12 @@ class CreateInventionsTable extends Migration
     {
         Schema::create('inventions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+
+            $table->string('slug');
             $table->string('name');
-            $table->string('info');
-            $table->string('domain');
+            $table->string('description');
+
+            $table->unsignedBigInteger('domain_id');
             $table->timestamps();
         });
     }
