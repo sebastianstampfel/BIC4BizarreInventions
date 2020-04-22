@@ -54,7 +54,7 @@ To query data for dropdowns in forms or to reload lists use the list routes:
 For the search form use ```q``` as the name for the text input.
 The search will be handled by the backend.
 
-#### CSS
+#### CSS (SCSS)
 
 The design of the software need to be adapted.
 [Bulma](https://bulma.io) is used to layout and style the website.
