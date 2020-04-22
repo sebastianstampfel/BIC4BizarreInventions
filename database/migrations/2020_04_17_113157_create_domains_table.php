@@ -18,7 +18,7 @@ class CreateDomainsTable extends Migration
 
             $table->string('slug')->unique();
             $table->string('name')->unique();
-            $table->string('description');
+            $table->text('description');
 
             $table->timestamps();
         });

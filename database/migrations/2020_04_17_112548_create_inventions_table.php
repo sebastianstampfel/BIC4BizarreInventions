@@ -18,9 +18,10 @@ class CreateInventionsTable extends Migration
 
             $table->string('slug')->unique();
             $table->string('name')->unique();
-            $table->string('description');
+            $table->text('description');
 
             $table->unsignedBigInteger('domain_id');
+
             $table->timestamps();
         });
     }
