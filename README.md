@@ -29,7 +29,9 @@ All views can be found in ```/resources/views```.
 
 ### TODO
 
-Implement your VueJS components in the folder ```/resources/views/js/components```.
+#### VueJS
+
+Implement your [VueJS](https://vue.js) components in the folder ```/resources/views/js/components```.
 Register your components in ```/resources/views/js/app.js``` and use them in the following files:
 
  * ```/resources/views/domain```
@@ -50,3 +52,16 @@ To query data for dropdowns in forms use the list routes:
  
 For the search form use ```q``` as the name for the text input.
 The search will be handled by the backend.
+
+#### CSS
+
+The design of the software need to be adapted.
+[Bulma](https://bulma.io) is used to layout and style the website.
+If wanted default styles can be overwritten by setting variables in the ```/resources/sass/_variables.scss``` file.
+Also it is possible to write custom styles in ```/resources/sass/_custom.scss```.
+
+### Hints
+
+To compile css and JavaScript ```npm run dev``` need to be executed in the project folder.
+It is also possible to run ```npm run watch``` so it is not need to execute ```npm run dev``` every time a change happend. 
+
