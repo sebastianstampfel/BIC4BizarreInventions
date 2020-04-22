@@ -60,6 +60,9 @@ The design of the software need to be adapted.
 If wanted default styles can be overwritten by setting variables in the ```/resources/sass/_variables.scss``` file.
 Also it is possible to write custom styles in ```/resources/sass/_custom.scss```.
 
+A new logo need to be set. If pictures will be present on the website place them in ```/public/img``` folder.
+Here you will also find the logo.
+
 ### Hints
 
 To compile scss and JavaScript ```npm run dev``` need to be executed in the project folder.
