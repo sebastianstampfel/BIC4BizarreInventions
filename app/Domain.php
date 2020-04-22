@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Support\Carbon;
 
 /**
@@ -26,7 +26,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Domain whereSlug($value)
  * @method static Builder|Domain whereDescription($value)
  * @method static Builder|Domain whereUpdatedAt($value)
- * @mixin Model
+ * @mixin Eloquent
  * @property-read Collection|Invention[] $inventions
  */
 class Domain extends BaseModel

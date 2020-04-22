@@ -24,7 +24,7 @@ class DomainController extends Controller
      */
     public function index()
     {
-        $domain = Domain::all();
+        $domain = Domain::all()->load('inventions');
 
         return view('domain.index', compact('domain'));
     }
@@ -47,7 +47,10 @@ class DomainController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Domain::create($request->validate([
+            'name' => 'required',
+            'description' => 'required'
+        ]));
     }
 
     /**
@@ -58,8 +61,6 @@ class DomainController extends Controller
      */
     public function show(Domain $domain)
     {
-        $domain = Domain::findOrFail($domain);
-
         return view('domain.show', compact('domain'));
     }
 
@@ -72,7 +73,6 @@ class DomainController extends Controller
     public function edit(Domain $domain)
     {
         return view('domain.edit', compact('domain'));
-
     }
 
     /**
@@ -84,7 +84,10 @@ class DomainController extends Controller
      */
     public function update(Request $request, Domain $domain)
     {
-        //
+        return $domain->update($request->validate([
+            'name' => 'required',
+            'description' => 'required'
+        ]));
     }
 
     /**
@@ -95,7 +98,7 @@ class DomainController extends Controller
      */
     public function destroy(Domain $domain)
     {
-        //
+        return $domain->delete();
     }
 
 

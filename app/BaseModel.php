@@ -17,6 +17,10 @@ abstract class BaseModel extends Model
     {
         parent::boot();
 
+        static::updating(function ($model){
+            $model->generateSlug();
+        });
+
         static::creating(function ($model)
         {
             $model->generateSlug();

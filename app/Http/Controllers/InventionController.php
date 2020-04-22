@@ -24,7 +24,7 @@ class InventionController extends Controller
      */
     public function index()
     {
-        $invention = Invention::all();
+        $invention = Invention::all()->load('domain');
 
         return view('invention.index', compact('invention'));
     }
@@ -47,7 +47,11 @@ class InventionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Invention::create($request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'domain_id' => 'required|exists:App\Domain,id'
+        ]));
     }
 
     /**
@@ -81,7 +85,11 @@ class InventionController extends Controller
      */
     public function update(Request $request, Invention $invention)
     {
-        //
+        return $invention->update($request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'domain_id' => 'required|exists:App\Domain,id'
+        ]));
     }
 
     /**
@@ -92,7 +100,7 @@ class InventionController extends Controller
      */
     public function destroy(Invention $invention)
     {
-        //
+        $invention->delete();
     }
 
 
@@ -115,7 +123,19 @@ class InventionController extends Controller
      */
     public function query(Request $request)
     {
-        //
+        $search = $request->validate([
+            'q' => 'required'
+        ])['q'];
+
+        return Invention::query()
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('Description', 'LIKE', "%{$search}%")
+            ->orWhereHas('domain', function ($q) use ($search){
+                $q  ->where('name', 'LIKE', "%{$search}%")
+                    ->orWhere('Description', 'LIKE', "%{$search}%");
+            })
+            ->with('domain')
+            ->get();
     }
 
     /**

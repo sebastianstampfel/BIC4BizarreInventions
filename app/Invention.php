@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Support\Carbon;
 
 /**
@@ -27,7 +27,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Domain whereDescription($value)
  * @method static Builder|Domain whereDomainId($value)
  * @method static Builder|Domain whereUpdatedAt($value)
- * @mixin Model
+ * @mixin Eloquent
  * @property-read Domain $domain
  */
 class Invention extends BaseModel
