@@ -46,7 +46,7 @@ Register your components in ```/resources/views/js/app.js``` and use them in the
       * ```/resources/views/invention/search.blade.php```
       * ```/resources/views/invention/show.blade.php```
       
-To query data for dropdowns in forms use the list routes:
+To query data for dropdowns in forms or to reload lists use the list routes:
  * GET /list/domain
  * GET /list/invention
  
