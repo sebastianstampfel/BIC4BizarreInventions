@@ -9,22 +9,22 @@ It is possible to search for inventions by various parameters.
 
 ### Already providing
 
- * All routes that are needed are implemented:
-     * **GET** ```/invention``` &rarr; Lists all inventions
-     * **GET** ```/list/invention``` &rarr; Returns JSON of all inventions
-     * **GET** ```/list/domain``` &rarr; Returns JSON of all domains
-     * **POST** ```/invention``` &rarr; Stores new inventions
-     * **GET** ```/invention/{slug}``` &rarr; Show invention
-     * **PUT** ```/invention/{slug}``` &rarr; Update invention
-     * **GET** ```/invention/{slug}/edit``` &rarr; Edit invention
-     * **GET** ```/search/invention``` &rarr; Search inventions
-     * **POST** ```/search/invention``` &rarr; Query inventions
-     * **GET** ```/domain``` &rarr; Lists all domains
-     * **GET** ```/list/domain``` &rarr; Returns JSON of all domains
-     * **POST** ```/domain``` &rarr; Stores new domains
-     * **GET** ```/domain/{slug}``` &rarr; Show domain
-     * **PUT** ```/domain/{slug}``` &rarr; Update domain
-     * **GET** ```/domain/{slug}/edit``` &rarr; Edit domain
+All routes that are needed are implemented:
+ * **GET** ```/invention``` &rarr; Lists all inventions
+ * **GET** ```/list/invention``` &rarr; Returns JSON of all inventions
+ * **GET** ```/list/domain``` &rarr; Returns JSON of all domains
+ * **POST** ```/invention``` &rarr; Stores new inventions
+ * **GET** ```/invention/{slug}``` &rarr; Show invention
+ * **PUT** ```/invention/{slug}``` &rarr; Update invention
+ * **GET** ```/invention/{slug}/edit``` &rarr; Edit invention
+ * **GET** ```/search/invention``` &rarr; Search inventions
+ * **POST** ```/search/invention``` &rarr; Query inventions
+ * **GET** ```/domain``` &rarr; Lists all domains
+ * **GET** ```/list/domain``` &rarr; Returns JSON of all domains
+ * **POST** ```/domain``` &rarr; Stores new domains
+ * **GET** ```/domain/{slug}``` &rarr; Show domain
+ * **PUT** ```/domain/{slug}``` &rarr; Update domain
+ * **GET** ```/domain/{slug}/edit``` &rarr; Edit domain
 
 All views can be found in ```/resources/views```.
 
