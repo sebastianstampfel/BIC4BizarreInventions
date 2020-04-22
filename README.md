@@ -40,11 +40,11 @@ Register your components in ```/resources/views/js/app.js``` and use them in the
      * ```/resources/views/domain/index.blade.php```
      * ```/resources/views/domain/show.blade.php```
  * ```/resources/views/invention```
-      * ```/resources/views/domain/create.blade.php```
-      * ```/resources/views/domain/edit.blade.php```
-      * ```/resources/views/domain/index.blade.php```
-      * ```/resources/views/domain/search.blade.php```
-      * ```/resources/views/domain/show.blade.php```
+      * ```/resources/views/invention/create.blade.php```
+      * ```/resources/views/invention/edit.blade.php```
+      * ```/resources/views/invention/index.blade.php```
+      * ```/resources/views/invention/search.blade.php```
+      * ```/resources/views/invention/show.blade.php```
       
 To query data for dropdowns in forms use the list routes:
  * GET /list/domain
