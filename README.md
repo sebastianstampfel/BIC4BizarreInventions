@@ -12,6 +12,7 @@ It is possible to search for inventions by various parameters.
  * All routes that are needed are implemented:
      * GET /invention &rarr; Lists all inventions
      * GET /list/invention &rarr; Returns JSON of all inventions
+     * GET /list/domain &rarr; Returns JSON of all domains
      * POST /invention &rarr; Stores new inventions
      * GET /invention/{slug} &rarr; Show invention
      * PUT /invention/{slug} &rarr; Update invention
@@ -65,6 +66,12 @@ Here you will also find the logo.
 
 ### Hints
 
+#### JavaScript and CSS (SCSS)
+
 To compile scss and JavaScript ```npm run dev``` need to be executed in the project folder.
 It is also possible to run ```npm run watch``` so it is not need to execute ```npm run dev``` every time a change happend. 
 
+#### Data for Database
+
+To make starting developing fast there are some seeders implemented to fill all needed tables except the user table.
+To populate the database run the command ```php artisan db:seed``` in the terminal in project root folder.
