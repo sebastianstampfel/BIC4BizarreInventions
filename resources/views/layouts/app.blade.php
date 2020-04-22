@@ -43,7 +43,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="{{ route('welcome') }}">
-                <img src="{{asset('img/Logo.png')}}" width="112" height="28">
+                <img alt="Logo" src="{{asset('img/Logo.png')}}" width="112" height="28">
             </a>
 
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
@@ -57,39 +57,45 @@
         <div id="navbarMain" class="navbar-menu">
             @auth
                 <div class="navbar-start">
-                    <a class="navbar-item" href="{{ route('home') }}">
+                    <a class="navbar-item {{ request()->routeIs('home') ? 'is-active' : '' }}"
+                       href="{{ route('home') }}">
                         Home
                     </a>
 
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
+                        <a class="navbar-link {{ request()->routeIs('invention.index') || request()->routeIs('invention.create') || request()->routeIs('invention.search') ? 'is-active' : '' }}">
                             Inventions
                         </a>
 
                         <div class="navbar-dropdown">
-                            <a class="navbar-item" href="{{ route('invention.index') }}">
+                            <a class="navbar-item {{ request()->routeIs('invention.index') ? 'is-active' : '' }}"
+                               href="{{ route('invention.index') }}">
                                 List
                             </a>
-                            <a class="navbar-item" href="{{ route('invention.create') }}">
+                            <a class="navbar-item {{ request()->routeIs('invention.create') ? 'is-active' : '' }}"
+                               href="{{ route('invention.create') }}">
                                 Create
                             </a>
                             <hr class="navbar-divider">
-                            <a class="navbar-item" href="{{ route('invention.search') }}">
+                            <a class="navbar-item {{ request()->routeIs('invention.search') ? 'is-active' : '' }}"
+                               href="{{ route('invention.search') }}">
                                 Search
                             </a>
                         </div>
                     </div>
 
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
+                        <a class="navbar-link {{ request()->routeIs('domain.index') || request()->routeIs('domain.create') ? 'is-active' : '' }}">
                             Domains
                         </a>
 
                         <div class="navbar-dropdown">
-                            <a class="navbar-item" href="{{ route('domain.index') }}">
+                            <a class="navbar-item {{ request()->routeIs('domain.index') ? 'is-active' : '' }}"
+                               href="{{ route('domain.index') }}">
                                 List
                             </a>
-                            <a class="navbar-item" href="{{ route('domain.create') }}">
+                            <a class="navbar-item {{ request()->routeIs('domain.create') ? 'is-active' : '' }}"
+                               href="{{ route('domain.create') }}">
                                 Create
                             </a>
                         </div>

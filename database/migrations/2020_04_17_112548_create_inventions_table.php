@@ -16,8 +16,8 @@ class CreateInventionsTable extends Migration
         Schema::create('inventions', function (Blueprint $table) {
             $table->id();
 
-            $table->string('slug');
-            $table->string('name');
+            $table->string('slug')->unique();
+            $table->string('name')->unique();
             $table->string('description');
 
             $table->unsignedBigInteger('domain_id');
