@@ -100,7 +100,7 @@ class InventionController extends Controller
      */
     public function destroy(Invention $invention)
     {
-        $invention->delete();
+        return $invention->delete();
     }
 
 
