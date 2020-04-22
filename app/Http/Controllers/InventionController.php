@@ -129,10 +129,10 @@ class InventionController extends Controller
 
         return Invention::query()
             ->where('name', 'LIKE', "%{$search}%")
-            ->orWhere('Description', 'LIKE', "%{$search}%")
+            ->orWhere('description', 'LIKE', "%{$search}%")
             ->orWhereHas('domain', function ($q) use ($search){
                 $q  ->where('name', 'LIKE', "%{$search}%")
-                    ->orWhere('Description', 'LIKE', "%{$search}%");
+                    ->orWhere('description', 'LIKE', "%{$search}%");
             })
             ->with('domain')
             ->get();
