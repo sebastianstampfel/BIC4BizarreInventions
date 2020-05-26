@@ -16,6 +16,7 @@ All routes that are needed are implemented:
  * **POST** ```/invention``` &rarr; Stores new inventions
  * **GET** ```/invention/{slug}``` &rarr; Show invention
  * **PUT** ```/invention/{slug}``` &rarr; Update invention
+ * **DELETE** ```/invention/{slug}``` &rarr; Delete invention
  * **GET** ```/invention/{slug}/edit``` &rarr; Edit invention
  * **GET** ```/search/invention``` &rarr; Search inventions
  * **POST** ```/search/invention``` &rarr; Query inventions
@@ -24,6 +25,7 @@ All routes that are needed are implemented:
  * **POST** ```/domain``` &rarr; Stores new domains
  * **GET** ```/domain/{slug}``` &rarr; Show domain
  * **PUT** ```/domain/{slug}``` &rarr; Update domain
+ * **DELETE** ```/domain/{slug}``` &rarr; Delete domain
  * **GET** ```/domain/{slug}/edit``` &rarr; Edit domain
 
 All views can be found in ```/resources/views```.
@@ -32,8 +34,8 @@ All views can be found in ```/resources/views```.
 
 #### VueJS
 
-Implement your [VueJS](https://vue.js) components in the folder ```/resources/views/js/components```.
-Register your components in ```/resources/views/js/app.js``` and use them in the following files:
+Implement your [VueJS](https://vuejs.org) components in the folder ```/resources/js/components```.
+Register your components in ```/resources/js/app.js``` and use them in the following files:
 
  * ```/resources/views/domain```
      * ```/resources/views/domain/create.blade.php```
