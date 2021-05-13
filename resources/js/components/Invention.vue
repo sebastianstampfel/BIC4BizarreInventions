@@ -1,30 +1,27 @@
 <template>
   <div class="container">
-    <h1>Cool invention</h1>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Domain</th>
-          <th>Created</th>
-          <th>Updated</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ invention.id }}</td>
-          <td>
-            <a :href="'invention/' + invention.slug">{{ invention.name }}</a>
-          </td>
-          <td>{{ invention.description }}</td>
-          <td>{{ domainName }}</td>
-          <td>{{ invention.created_at }}</td>
-          <td>{{ invention.updated_at }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-4">{{ invention.name }}</p>
+            <p class="subtitle is-6">{{ domainName }}</p>
+          </div>
+        </div>
+
+        <div class="content">
+          {{ invention.description }}
+          <p class="timestamps">
+            <i class="fas fa-plus"></i> {{ dateFormat(invention.created_at) }}
+          </p>
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <a href="#" class="card-footer-item">Edit</a>
+        <a href="#" class="card-footer-item">Delete</a>
+      </footer>
+    </div>
   </div>
 </template>
 
@@ -34,31 +31,25 @@ export default {
   name: "Invention",
   data() {
     return {
-      domainName: ""
+      domainName: "",
     };
   },
   methods: {
-    domainLookupById(domain) {
-      axios.get('/list/domain').then(function (response) {
-        console.log(response);
-        response.data.forEach(d => {
-          if (d.id == domain) {
-            domainName = d.name
-          }
-        })
-        console.log(domainName)
-        return domainName
-      })
+    dateFormat(timestamp) {
+      const date = new Date(timestamp);
+      return date.toLocaleString("de-AT");
     },
   },
   created() {
-    axios.get('/list/domain').then(res => {
-      res.data.forEach(d => {
+    // Backend provides no way to lookup a domain by id,
+    // so here we are with this "hacky" approach
+    axios.get("/list/domain").then((res) => {
+      res.data.forEach((d) => {
         if (d.id == this.invention.domain_id) {
-          this.domainName = d.name
+          this.domainName = d.name;
         }
-      })
-    })
+      });
+    });
   },
   props: {
     invention: Object,
@@ -67,4 +58,9 @@ export default {
 </script>
 
 <style scoped>
+.timestamps {
+  font-size: 85%;
+  color: rgb(156, 156, 156);
+  margin-top: 1em;
+}
 </style>
