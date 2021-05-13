@@ -2163,7 +2163,7 @@ var form = new Form({
         _this.form.domain_id = response.domain_id;
         _this.form.noReset = ["invention_id", "name", "domain_id"];
         _this.edit = true;
-        window.history.pushState("", "", _this.url);
+        window.location.href = _this.url;
       });
     }
   },
@@ -20705,11 +20705,7 @@ var render = function() {
             attrs: { href: _vm.invention.slug + "/edit" }
           },
           [_vm._v("Edit")]
-        ),
-        _vm._v(" "),
-        _c("a", { staticClass: "card-footer-item", attrs: { href: "#" } }, [
-          _vm._v("Delete")
-        ])
+        )
       ])
     ])
   ])

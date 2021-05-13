@@ -152,7 +152,7 @@ export default {
 
           this.edit = true;
 
-          window.history.pushState("", "", this.url);
+          window.location.href = this.url;
         });
     },
   },
