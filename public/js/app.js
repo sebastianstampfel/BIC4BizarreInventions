@@ -1936,6 +1936,271 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Invention.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Invention.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  name: "Invention",
+  data: function data() {
+    return {
+      domainName: ""
+    };
+  },
+  methods: {
+    domainLookupById: function domainLookupById(domain) {
+      axios.get('/list/domain').then(function (response) {
+        console.log(response);
+        response.data.forEach(function (d) {
+          if (d.id == domain) {
+            domainName = d.name;
+          }
+        });
+        console.log(domainName);
+        return domainName;
+      });
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/list/domain').then(function (res) {
+      res.data.forEach(function (d) {
+        if (d.id == _this.invention.domain_id) {
+          _this.domainName = d.name;
+        }
+      });
+    });
+  },
+  props: {
+    invention: Object
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InventionForm.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/InventionForm.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var form = new Form({
+  invention_id: "",
+  name: "",
+  description: "",
+  domain_id: "1",
+  noReset: ["domain_id"]
+});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  name: "InventionForm",
+  data: function data() {
+    return {
+      edit: undefined,
+      form: form,
+      url: "",
+      domains: [],
+      noDomains: false
+    };
+  },
+  props: {
+    isEditable: {
+      required: false,
+      type: Boolean,
+      "default": false
+    },
+    currentInvention: {
+      required: false,
+      type: Object
+    }
+  },
+  computed: {
+    loading: function loading() {
+      return !this.domains.length;
+    }
+  },
+  watch: {
+    domains: function domains() {
+      if (!this.loading && this.form.domain_id === "") {
+        this.form.domain_id = _.first(this.domains).id;
+      }
+    }
+  },
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      if (this.edit) this.form.put(this.url);
+      this.form.post(this.url).then(function (response) {
+        _this.url = "/invention/" + response.slug;
+        _this.form.invention_id = response.invention_id;
+        _this.form.name = response.name;
+        _this.form.domain_id = response.domain_id;
+        _this.form.noReset = ["invention_id", "name", "domain_id"];
+        _this.edit = true;
+        window.history.pushState("", "", _this.url);
+      });
+    }
+  },
+  created: function created() {
+    var _this2 = this;
+
+    axios.get("/list/domain").then(function (response) {
+      _this2.domains = response.data;
+      if (_this2.loading) _this2.noDomains = true;
+    });
+    this.edit = this.isEditable;
+
+    if (this.edit) {
+      this.url = "/invention/" + this.currentInvention.slug;
+      this.form.invention_id = this.currentInvention.id;
+      this.form.name = this.currentInvention.name;
+      this.form.description = this.currentInvention.description;
+      this.form.domain_id = this.currentInvention.domain_id;
+      this.form.noReset = ["invention_id", "name", "description", "domain_id"];
+    } else {
+      this.url = "/invention";
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InventionsList.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/InventionsList.vue?vue&type=script&lang=js& ***!
@@ -1945,6 +2210,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -19751,6 +20017,284 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Invention.vue?vue&type=template&id=e0a074da&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Invention.vue?vue&type=template&id=e0a074da&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("h1", [_vm._v("Cool invention")]),
+    _vm._v(" "),
+    _c("table", { staticClass: "table" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("tr", [
+          _c("td", [_vm._v(_vm._s(_vm.invention.id))]),
+          _vm._v(" "),
+          _c("td", [
+            _c("a", { attrs: { href: "invention/" + _vm.invention.slug } }, [
+              _vm._v(_vm._s(_vm.invention.name))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.invention.description))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.domainName))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.invention.created_at))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.invention.updated_at))])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Description")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Domain")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Created")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Updated")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InventionForm.vue?vue&type=template&id=46963ef7&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/InventionForm.vue?vue&type=template&id=46963ef7&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("h1", [_vm._v("Invention form! Soon!")]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.submit($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "field" }, [
+          _c("label", { staticClass: "label", attrs: { for: "name" } }, [
+            _vm._v("Name")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "control" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.name,
+                  expression: "form.name"
+                }
+              ],
+              staticClass: "input",
+              class: { "is-danger": _vm.form.errors.has("title") },
+              attrs: { id: "name", type: "text", autofocus: "" },
+              domProps: { value: _vm.form.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm.form.errors.has("title")
+            ? _c("p", {
+                staticClass: "help is-danger",
+                domProps: { textContent: _vm._s(_vm.form.errors.get("title")) }
+              })
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field" }, [
+          _c("label", { staticClass: "label", attrs: { for: "description" } }, [
+            _vm._v("Description")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "control" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.description,
+                  expression: "form.description"
+                }
+              ],
+              staticClass: "input",
+              class: { "is-danger": _vm.form.errors.has("title") },
+              attrs: { id: "description", type: "text", autofocus: "" },
+              domProps: { value: _vm.form.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "description", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm.form.errors.has("title")
+            ? _c("p", {
+                staticClass: "help is-danger",
+                domProps: { textContent: _vm._s(_vm.form.errors.get("title")) }
+              })
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field" }, [
+          _c("label", { staticClass: "label", attrs: { for: "domain" } }, [
+            _vm._v("Domain")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "control" }, [
+            _c(
+              "div",
+              {
+                staticClass: "select is-fullwidth",
+                class: _vm.loading ? "is-loading" : ""
+              },
+              [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.domain_id,
+                        expression: "form.domain_id"
+                      }
+                    ],
+                    attrs: { id: "domain", disabled: _vm.loading },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.form,
+                          "domain_id",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _vm.loading
+                      ? _c(
+                          "option",
+                          { domProps: { value: this.form.domain_id } },
+                          [_vm._v("\n              Loading...\n            ")]
+                        )
+                      : _vm._l(_vm.domains, function(domain) {
+                          return _c("option", {
+                            key: domain.id,
+                            domProps: {
+                              value: domain.id,
+                              textContent: _vm._s(domain.name)
+                            }
+                          })
+                        })
+                  ],
+                  2
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _vm.form.errors.has("domain_id")
+            ? _c("p", {
+                staticClass: "help is-danger",
+                domProps: {
+                  textContent: _vm._s(_vm.form.errors.get("domain_id"))
+                }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.noCategories
+            ? _c("p", { staticClass: "help is-warning" }, [
+                _vm._v(
+                  "\n        Add some domains to create inventions!\n      "
+                )
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("button", {
+          staticClass: "button is-large is-primary is-outlined is-fullwidth",
+          attrs: { type: "submit", disabled: _vm.loading },
+          domProps: { textContent: _vm._s(_vm.edit ? "Save" : "Post") }
+        })
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InventionsList.vue?vue&type=template&id=cb6290a4&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/InventionsList.vue?vue&type=template&id=cb6290a4&scoped=true& ***!
@@ -19778,7 +20322,13 @@ var render = function() {
           return _c("tr", { key: invention.id }, [
             _c("td", [_vm._v(_vm._s(invention.id))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(invention.name))]),
+            _c("td", [
+              _c("a", { attrs: { href: "invention/" + invention.slug } }, [
+                _vm._v(_vm._s(invention.name))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(invention.description))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(invention.domain.name))]),
             _vm._v(" "),
@@ -19802,6 +20352,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("ID")]),
         _vm._v(" "),
         _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Description")]),
         _vm._v(" "),
         _c("th", [_vm._v("Domain")]),
         _vm._v(" "),
@@ -32051,6 +32603,8 @@ window.Vue = vue__WEBPACK_IMPORTED_MODULE_0___default.a;
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('query-message', __webpack_require__(/*! ./components/base/QueryMessage.vue */ "./resources/js/components/base/QueryMessage.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('inventions-list', __webpack_require__(/*! ./components/InventionsList.vue */ "./resources/js/components/InventionsList.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('invention-form', __webpack_require__(/*! ./components/InventionForm.vue */ "./resources/js/components/InventionForm.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('invention', __webpack_require__(/*! ./components/Invention.vue */ "./resources/js/components/Invention.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -32185,6 +32739,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Invention.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/Invention.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Invention_vue_vue_type_template_id_e0a074da_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Invention.vue?vue&type=template&id=e0a074da&scoped=true& */ "./resources/js/components/Invention.vue?vue&type=template&id=e0a074da&scoped=true&");
+/* harmony import */ var _Invention_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Invention.vue?vue&type=script&lang=js& */ "./resources/js/components/Invention.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Invention_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Invention_vue_vue_type_template_id_e0a074da_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Invention_vue_vue_type_template_id_e0a074da_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "e0a074da",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Invention.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Invention.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/Invention.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Invention_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Invention.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Invention.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Invention_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Invention.vue?vue&type=template&id=e0a074da&scoped=true&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/Invention.vue?vue&type=template&id=e0a074da&scoped=true& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Invention_vue_vue_type_template_id_e0a074da_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Invention.vue?vue&type=template&id=e0a074da&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Invention.vue?vue&type=template&id=e0a074da&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Invention_vue_vue_type_template_id_e0a074da_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Invention_vue_vue_type_template_id_e0a074da_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/InventionForm.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/InventionForm.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _InventionForm_vue_vue_type_template_id_46963ef7_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InventionForm.vue?vue&type=template&id=46963ef7&scoped=true& */ "./resources/js/components/InventionForm.vue?vue&type=template&id=46963ef7&scoped=true&");
+/* harmony import */ var _InventionForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InventionForm.vue?vue&type=script&lang=js& */ "./resources/js/components/InventionForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _InventionForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _InventionForm_vue_vue_type_template_id_46963ef7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _InventionForm_vue_vue_type_template_id_46963ef7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "46963ef7",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/InventionForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/InventionForm.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/InventionForm.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InventionForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./InventionForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InventionForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InventionForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/InventionForm.vue?vue&type=template&id=46963ef7&scoped=true&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/InventionForm.vue?vue&type=template&id=46963ef7&scoped=true& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InventionForm_vue_vue_type_template_id_46963ef7_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./InventionForm.vue?vue&type=template&id=46963ef7&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InventionForm.vue?vue&type=template&id=46963ef7&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InventionForm_vue_vue_type_template_id_46963ef7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InventionForm_vue_vue_type_template_id_46963ef7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -24,6 +24,10 @@ window.Vue = vue;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('query-message', require('./components/base/QueryMessage.vue').default);
 Vue.component('inventions-list', require('./components/InventionsList.vue').default);
+Vue.component('invention-form', require('./components/InventionForm.vue').default);
+Vue.component('invention', require('./components/Invention.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
