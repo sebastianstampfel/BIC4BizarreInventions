@@ -18,7 +18,7 @@
       </div>
 
       <footer class="card-footer">
-        <a href="#" class="card-footer-item">Edit</a>
+        <a :href="invention.slug + '/edit'" class="card-footer-item">Edit</a>
         <a href="#" class="card-footer-item">Delete</a>
       </footer>
     </div>

@@ -47,11 +47,15 @@ class InventionController extends Controller
      */
     public function store(Request $request)
     {
-        return Invention::create($request->validate([
+        $invention = Invention::create($request->validate([
             'name' => 'required',
             'description' => 'required',
             'domain_id' => 'required|exists:App\Domain,id'
         ]));
+
+        $invention->{"message"} = "Invention successfully created!";
+
+        return response($invention, 200)->header('Content-Type', 'application/json');
     }
 
     /**
@@ -73,7 +77,7 @@ class InventionController extends Controller
      */
     public function edit(Invention $invention)
     {
-        return view('invention.edit', compact($invention));
+        return view('invention.edit', compact('invention'));
     }
 
     /**
@@ -85,11 +89,15 @@ class InventionController extends Controller
      */
     public function update(Request $request, Invention $invention)
     {
-        return $invention->update($request->validate([
+        if ($invention->update($request->validate([
             'name' => 'required',
             'description' => 'required',
             'domain_id' => 'required|exists:App\Domain,id'
-        ]));
+        ])))
+            return response(['message' => "Invention successfully updated!"], 200)
+            ->header('Content-Type', 'application/json');
+        else
+            abort('500');
     }
 
     /**
@@ -100,7 +108,11 @@ class InventionController extends Controller
      */
     public function destroy(Invention $invention)
     {
-        return $invention->delete();
+        if($invention->delete())
+            return response(['message' => "Invention deleted!"], 200)
+                    ->header('Content-Type', 'application/json');
+        else
+            abort('500');
     }
 
 

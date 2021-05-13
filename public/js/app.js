@@ -2156,8 +2156,7 @@ var form = new Form({
     submit: function submit() {
       var _this = this;
 
-      if (this.edit) this.form.put(this.url);
-      this.form.post(this.url).then(function (response) {
+      if (this.edit) this.form.put(this.url);else this.form.post(this.url).then(function (response) {
         _this.url = "/invention/" + response.slug;
         _this.form.invention_id = response.invention_id;
         _this.form.name = response.name;
@@ -20698,26 +20697,24 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(0)
+      _c("footer", { staticClass: "card-footer" }, [
+        _c(
+          "a",
+          {
+            staticClass: "card-footer-item",
+            attrs: { href: _vm.invention.slug + "/edit" }
+          },
+          [_vm._v("Edit")]
+        ),
+        _vm._v(" "),
+        _c("a", { staticClass: "card-footer-item", attrs: { href: "#" } }, [
+          _vm._v("Delete")
+        ])
+      ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "card-footer" }, [
-      _c("a", { staticClass: "card-footer-item", attrs: { href: "#" } }, [
-        _vm._v("Edit")
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "card-footer-item", attrs: { href: "#" } }, [
-        _vm._v("Delete")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -20739,190 +20736,207 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h1", [_vm._v("Invention form! Soon!")]),
-    _vm._v(" "),
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.submit($event)
-          }
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("query-message", {
+        attrs: {
+          success: _vm.form.isSuccess(),
+          fail: _vm.form.isFail(),
+          message: _vm.form.failMessage || _vm.form.successMessage
         }
-      },
-      [
-        _c("div", { staticClass: "field" }, [
-          _c("label", { staticClass: "label", attrs: { for: "name" } }, [
-            _vm._v("Name")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "control" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.name,
-                  expression: "form.name"
-                }
-              ],
-              staticClass: "input",
-              class: { "is-danger": _vm.form.errors.has("title") },
-              attrs: { id: "name", type: "text", autofocus: "" },
-              domProps: { value: _vm.form.name },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "name", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _vm.form.errors.has("title")
-            ? _c("p", {
-                staticClass: "help is-danger",
-                domProps: { textContent: _vm._s(_vm.form.errors.get("title")) }
-              })
-            : _vm._e()
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "field" }, [
-          _c("label", { staticClass: "label", attrs: { for: "description" } }, [
-            _vm._v("Description")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "control" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.description,
-                  expression: "form.description"
-                }
-              ],
-              staticClass: "input",
-              class: { "is-danger": _vm.form.errors.has("title") },
-              attrs: { id: "description", type: "text", autofocus: "" },
-              domProps: { value: _vm.form.description },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "description", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _vm.form.errors.has("title")
-            ? _c("p", {
-                staticClass: "help is-danger",
-                domProps: { textContent: _vm._s(_vm.form.errors.get("title")) }
-              })
-            : _vm._e()
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "field" }, [
-          _c("label", { staticClass: "label", attrs: { for: "domain" } }, [
-            _vm._v("Domain")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "control" }, [
-            _c(
-              "div",
-              {
-                staticClass: "select is-fullwidth",
-                class: _vm.loading ? "is-loading" : ""
-              },
-              [
-                _c(
-                  "select",
+      }),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.submit($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "field" }, [
+            _c("label", { staticClass: "label", attrs: { for: "name" } }, [
+              _vm._v("Name")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                directives: [
                   {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.domain_id,
-                        expression: "form.domain_id"
-                      }
-                    ],
-                    attrs: { id: "domain", disabled: _vm.loading },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.form,
-                          "domain_id",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.name,
+                    expression: "form.name"
+                  }
+                ],
+                staticClass: "input",
+                class: { "is-danger": _vm.form.errors.has("title") },
+                attrs: { id: "name", type: "text", autofocus: "" },
+                domProps: { value: _vm.form.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  },
-                  [
-                    _vm.loading
-                      ? _c(
-                          "option",
-                          { domProps: { value: this.form.domain_id } },
-                          [_vm._v("\n              Loading...\n            ")]
-                        )
-                      : _vm._l(_vm.domains, function(domain) {
-                          return _c("option", {
-                            key: domain.id,
-                            domProps: {
-                              value: domain.id,
-                              textContent: _vm._s(domain.name)
-                            }
-                          })
-                        })
-                  ],
-                  2
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _vm.form.errors.has("domain_id")
-            ? _c("p", {
-                staticClass: "help is-danger",
-                domProps: {
-                  textContent: _vm._s(_vm.form.errors.get("domain_id"))
+                    _vm.$set(_vm.form, "name", $event.target.value)
+                  }
                 }
               })
-            : _vm._e(),
+            ]),
+            _vm._v(" "),
+            _vm.form.errors.has("title")
+              ? _c("p", {
+                  staticClass: "help is-danger",
+                  domProps: {
+                    textContent: _vm._s(_vm.form.errors.get("title"))
+                  }
+                })
+              : _vm._e()
+          ]),
           _vm._v(" "),
-          _vm.noCategories
-            ? _c("p", { staticClass: "help is-warning" }, [
-                _vm._v(
-                  "\n        Add some domains to create inventions!\n      "
-                )
-              ])
-            : _vm._e()
-        ]),
-        _vm._v(" "),
-        _c("button", {
-          staticClass: "button is-large is-primary is-outlined is-fullwidth",
-          attrs: { type: "submit", disabled: _vm.loading },
-          domProps: { textContent: _vm._s(_vm.edit ? "Save" : "Post") }
-        })
-      ]
-    )
-  ])
+          _c("div", { staticClass: "field" }, [
+            _c(
+              "label",
+              { staticClass: "label", attrs: { for: "description" } },
+              [_vm._v("Description")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.description,
+                    expression: "form.description"
+                  }
+                ],
+                staticClass: "textarea",
+                class: { "is-danger": _vm.form.errors.has("title") },
+                attrs: { id: "description", type: "text", autofocus: "" },
+                domProps: { value: _vm.form.description },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "description", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _vm.form.errors.has("title")
+              ? _c("p", {
+                  staticClass: "help is-danger",
+                  domProps: {
+                    textContent: _vm._s(_vm.form.errors.get("title"))
+                  }
+                })
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("label", { staticClass: "label", attrs: { for: "domain" } }, [
+              _vm._v("Domain")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "select is-fullwidth",
+                  class: _vm.loading ? "is-loading" : ""
+                },
+                [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.domain_id,
+                          expression: "form.domain_id"
+                        }
+                      ],
+                      attrs: { id: "domain", disabled: _vm.loading },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "domain_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _vm.loading
+                        ? _c(
+                            "option",
+                            { domProps: { value: this.form.domain_id } },
+                            [_vm._v("\n              Loading...\n            ")]
+                          )
+                        : _vm._l(_vm.domains, function(domain) {
+                            return _c("option", {
+                              key: domain.id,
+                              domProps: {
+                                value: domain.id,
+                                textContent: _vm._s(domain.name)
+                              }
+                            })
+                          })
+                    ],
+                    2
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _vm.form.errors.has("domain_id")
+              ? _c("p", {
+                  staticClass: "help is-danger",
+                  domProps: {
+                    textContent: _vm._s(_vm.form.errors.get("domain_id"))
+                  }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.noDomains
+              ? _c("p", { staticClass: "help is-warning" }, [
+                  _vm._v(
+                    "\n        Add some domains to create inventions!\n      "
+                  )
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("button", {
+            staticClass: "button is-large is-primary is-outlined is-fullwidth",
+            attrs: { type: "submit", disabled: _vm.loading },
+            domProps: { textContent: _vm._s(_vm.edit ? "Save" : "Post") }
+          })
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

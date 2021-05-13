@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h1>Invention form! Soon!</h1>
-
+    <query-message :success="form.isSuccess()" :fail="form.isFail()"
+                                       :message="form.failMessage || form.successMessage"></query-message>
     <form @submit.prevent="submit">
       <div class="field">
         <label class="label" for="name">Name</label>
@@ -25,10 +25,10 @@
       <div class="field">
         <label class="label" for="description">Description</label>
         <div class="control">
-          <input
+          <textarea
             id="description"
             v-model="form.description"
-            class="input"
+            class="textarea"
             v-bind:class="{ 'is-danger': form.errors.has('title') }"
             type="text"
             autofocus
@@ -64,7 +64,7 @@
           v-if="form.errors.has('domain_id')"
           v-text="form.errors.get('domain_id')"
         />
-        <p v-if="noCategories" class="help is-warning">
+        <p v-if="noDomains" class="help is-warning">
           Add some domains to create inventions!
         </p>
       </div>
@@ -140,19 +140,20 @@ export default {
   methods: {
     submit() {
       if (this.edit) this.form.put(this.url);
-      this.form.post(this.url).then((response) => {
-        this.url = "/invention/" + response.slug;
+      else
+        this.form.post(this.url).then((response) => {
+          this.url = "/invention/" + response.slug;
 
-        this.form.invention_id = response.invention_id;
-        this.form.name = response.name;
-        this.form.domain_id = response.domain_id;
+          this.form.invention_id = response.invention_id;
+          this.form.name = response.name;
+          this.form.domain_id = response.domain_id;
 
-        this.form.noReset = ["invention_id", "name", "domain_id"];
+          this.form.noReset = ["invention_id", "name", "domain_id"];
 
-        this.edit = true;
+          this.edit = true;
 
-        window.history.pushState("", "", this.url);
-      });
+          window.history.pushState("", "", this.url);
+        });
     },
   },
   created() {
