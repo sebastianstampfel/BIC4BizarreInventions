@@ -26,6 +26,12 @@ Vue.component('query-message', require('./components/base/QueryMessage.vue').def
 Vue.component('inventions-list', require('./components/InventionsList.vue').default);
 Vue.component('invention-form', require('./components/InventionForm.vue').default);
 Vue.component('invention', require('./components/Invention.vue').default);
+Vue.component('domains-list', require('./components/DomainsList.vue').default);
+Vue.component('domain', require('./components/Domain.vue').default);
+Vue.component('domain-inventions', require('./components/DomainInventions.vue').default);
+
+
+
 
 
 

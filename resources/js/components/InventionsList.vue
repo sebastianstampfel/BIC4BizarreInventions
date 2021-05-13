@@ -1,7 +1,6 @@
 <template>
     <div class="container">
-        <h1>Cool inventions list</h1>
-        <table class="table">
+        <table class="table" v-if="inventions.length != 0">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -15,7 +14,7 @@
             <tbody>
                 <tr v-for="invention in inventions" :key="invention.id">
                     <td>{{ invention.id }}</td>
-                    <td><a :href="'invention/' + invention.slug">{{ invention.name }}</a></td>
+                    <td><a :href="'/invention/' + invention.slug">{{ invention.name }}</a></td>
                     <td>{{ invention.description }}</td>
                     <td>{{ invention.domain.name }}</td>
                     <td>{{ invention.created_at }}</td>
@@ -23,6 +22,7 @@
                 </tr>
             </tbody>
         </table>
+        <h3 v-else>No inventions found. Add some!</h3>
     </div>
 </template>
 
