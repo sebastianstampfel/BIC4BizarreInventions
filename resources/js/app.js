@@ -29,6 +29,8 @@ Vue.component('invention', require('./components/Invention.vue').default);
 Vue.component('domains-list', require('./components/DomainsList.vue').default);
 Vue.component('domain', require('./components/Domain.vue').default);
 Vue.component('domain-inventions', require('./components/DomainInventions.vue').default);
+Vue.component('domain-form', require('./components/DomainForm.vue').default);
+
 
 
 

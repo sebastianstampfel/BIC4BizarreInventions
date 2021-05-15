@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       domainName: "",
-      inventions: []
+      inventions: [],
     };
   },
   methods: {
@@ -42,6 +42,8 @@ export default {
     },
   },
   created() {
+    // Fetch all inventions and keep the ones belonging to current domain
+    // for display
     axios.get("/list/invention").then((res) => {
       res.data.forEach((inv) => {
         if (inv.domain_id == this.domain.id) {
