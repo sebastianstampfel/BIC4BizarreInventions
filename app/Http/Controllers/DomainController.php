@@ -47,10 +47,14 @@ class DomainController extends Controller
      */
     public function store(Request $request)
     {
-        return Domain::create($request->validate([
+        $domain = Domain::create($request->validate([
             'name' => 'required',
             'description' => 'required'
         ]));
+
+        $domain->{"message"} = "Domain successfully created!";
+
+        return response($domain, 200)->header('Content-Type', 'application/json');
     }
 
     /**
@@ -84,10 +88,14 @@ class DomainController extends Controller
      */
     public function update(Request $request, Domain $domain)
     {
-        return $domain->update($request->validate([
+        if (return $domain->update($request->validate([
             'name' => 'required',
             'description' => 'required'
-        ]));
+        ])))
+            return response(['message' => "Domain successfully updated!"], 200)
+            ->header('Content-Type', 'application/json');
+        else
+            abort('500');
     }
 
     /**
@@ -98,7 +106,11 @@ class DomainController extends Controller
      */
     public function destroy(Domain $domain)
     {
-        return $domain->delete();
+        if($domain->delete())
+            return response(['message' => "Domain deleted!"], 200)
+                    ->header('Content-Type', 'application/json');
+        else
+            abort('500');
     }
 
 
