@@ -88,7 +88,7 @@ class DomainController extends Controller
      */
     public function update(Request $request, Domain $domain)
     {
-        if (return $domain->update($request->validate([
+        if ($domain->update($request->validate([
             'name' => 'required',
             'description' => 'required'
         ])))
