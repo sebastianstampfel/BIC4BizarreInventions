@@ -11762,3 +11762,12 @@ label.panel-block:hover {
   min-height: calc(100vh - 6.75rem);
 }
 
+h1 {
+  color: #213d3d;
+  font-size: x-large;
+  font-weight: bolder;
+  text-align: left;
+  vertical-align: bottom;
+  padding-bottom: 0.5em;
+}
+
