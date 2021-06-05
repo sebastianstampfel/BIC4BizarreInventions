@@ -124,14 +124,11 @@ export default {
     margin: auto;
 }
 .card-footer:hover{
-    background-color: dimgray;
+    background-color: #386565;
 }
 
 a:link {
     color:white;
-}
-a:hover {
-    color: darkred;
 }
 #invention-description{
     font-family: "Comic Sans MS";

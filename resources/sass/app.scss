@@ -18,3 +18,27 @@ h1{
     vertical-align: bottom;
     padding-bottom: .5em;
 }
+
+.navbar{
+    background-color: #213d3d;
+}
+
+#navbarMain{
+    a {
+        color: white;
+    }
+
+    a:hover {
+        color: #213d3d;
+        font-weight: bold;
+    }
+}
+.navbar-dropdown{
+    background-color: #386565;
+}
+
+.card-header{
+    background-color: #213d3d;
+}
+
+
