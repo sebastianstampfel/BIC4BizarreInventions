@@ -16,7 +16,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="domain in domains" :key="domain.id" class="list-table-entry">
+        <tr
+          v-for="domain in domains"
+          :key="domain.id"
+          class="list-table-entry"
+          @click="domainClickHandler(domain.slug)"
+        >
           <td>{{ domain.id }}</td>
           <td>
             <a :href="'domain/' + domain.slug">{{ domain.name }}</a>
@@ -82,6 +87,9 @@ export default {
         );
       }
       return dateStr;
+    },
+    domainClickHandler(slug) {
+      window.location.href = `/domain/${slug}`;
     },
   },
 };
