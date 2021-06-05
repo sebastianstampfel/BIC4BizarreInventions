@@ -4,15 +4,15 @@
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <p class="title is-4">{{ domain.name }}</p>
-            <p class="subtitle is-6">{{ domain.slug }}</p>
+            <h3 id="domain-name">{{ domain.name }}</h3>
+            <h4 id="domain-slug">{{ domain.slug }}</h4>
           </div>
         </div>
 
         <div class="content">
-          {{ domain.description }}
+            <p id="domain-description">{{ domain.description }}</p>
           <p class="timestamps">
-            <i class="fas fa-plus"></i> {{ dateFormat(domain.created_at) }}
+            <i class="fas fa-plus"></i> {{ formatDate(domain.created_at) }}
           </p>
         </div>
       </div>
@@ -36,9 +36,34 @@ export default {
   },
   name: "Domain",
   data() {
+      const months = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December'
+      ];
+      const days = [
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday'
+      ]
     return {
       domainName: "",
-      inventions: []
+      inventions: [],
+        months,
+        days
     };
   },
   methods: {
@@ -46,6 +71,14 @@ export default {
       const date = new Date(timestamp);
       return date.toLocaleString("de-AT");
     },
+      formatDate(dateStr){
+          const timestamp = Date.parse(dateStr);
+          if (isNaN(timestamp) == false) {
+              const date = new Date(timestamp);
+              return this.days[date.getDay()] + ", " + date.getDate() + ". " + this.months[date.getMonth()] + " " + date.getFullYear();
+          }
+          return dateStr;
+      }
   },
   created() {
     // Fetch all inventions and keep the ones belonging to current domain
@@ -65,13 +98,63 @@ export default {
 </script>
 
 <style scoped>
-.timestamps {
-  font-size: 85%;
-  color: rgb(156, 156, 156);
-  margin-top: 1em;
-}
+    .timestamps {
+      font-size: 85%;
+      color: rgb(156, 156, 156);
+      margin-top: 1em;
+    }
 
-.inventionslist {
-  margin-top: 2em;
-}
+    .inventionslist {
+      margin-top: 2em;
+    }
+    .container{
+        font-family: Calibri;
+    }
+
+    #domain-name{
+        font-size: x-large;
+        font-weight: bolder;
+        padding-left: .2em;
+        background-color: #213d3d;
+        color: white;
+    }
+
+    #domain-slug{
+        color: #213d3d;
+        font-size: large;
+        text-decoration-color: #213d3d;
+        text-decoration: underline;
+        animation: blink-animation 1s steps(5, start) infinite;
+        -webkit-animation: blink-animation 1s steps(5, start) infinite;
+    }
+
+    .card-footer{
+        width: 10%;
+        background-color: #213d3d;
+        margin: auto;
+    }
+    .card-footer:hover{
+        background-color: dimgray;
+    }
+
+    a:link {
+        color:white;
+    }
+    a:hover {
+        color: darkred;
+    }
+    #domain-description{
+        font-family: "Comic Sans MS";
+    }
+    @keyframes blink-animation {
+        to {
+            visibility: hidden;
+        }
+    }
+    @-webkit-keyframes blink-animation {
+        to {
+            visibility: hidden;
+        }
+    }
+
 </style>

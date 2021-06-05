@@ -1945,15 +1945,29 @@ __webpack_require__.r(__webpack_exports__);
   },
   name: "Domain",
   data: function data() {
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     return {
       domainName: "",
-      inventions: []
+      inventions: [],
+      months: months,
+      days: days
     };
   },
   methods: {
     dateFormat: function dateFormat(timestamp) {
       var date = new Date(timestamp);
       return date.toLocaleString("de-AT");
+    },
+    formatDate: function formatDate(dateStr) {
+      var timestamp = Date.parse(dateStr);
+
+      if (isNaN(timestamp) == false) {
+        var date = new Date(timestamp);
+        return this.days[date.getDay()] + ", " + date.getDate() + ". " + this.months[date.getMonth()] + " " + date.getFullYear();
+      }
+
+      return dateStr;
     }
   },
   created: function created() {
@@ -2317,14 +2331,28 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   name: "Invention",
   data: function data() {
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     return {
-      domainName: ""
+      domainName: "",
+      months: months,
+      days: days
     };
   },
   methods: {
     dateFormat: function dateFormat(timestamp) {
       var date = new Date(timestamp);
       return date.toLocaleString("de-AT");
+    },
+    formatDate: function formatDate(dateStr) {
+      var timestamp = Date.parse(dateStr);
+
+      if (isNaN(timestamp) == false) {
+        var date = new Date(timestamp);
+        return this.days[date.getDay()] + ", " + date.getDate() + ". " + this.months[date.getMonth()] + " " + date.getFullYear();
+      }
+
+      return dateStr;
     }
   },
   created: function created() {
@@ -2757,7 +2785,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.timestamps[data-v-305b80ef] {\r\n  font-size: 85%;\r\n  color: rgb(156, 156, 156);\r\n  margin-top: 1em;\n}\n.inventionslist[data-v-305b80ef] {\r\n  margin-top: 2em;\n}\r\n", ""]);
+exports.push([module.i, "\n.timestamps[data-v-305b80ef] {\n  font-size: 85%;\n  color: rgb(156, 156, 156);\n  margin-top: 1em;\n}\n.inventionslist[data-v-305b80ef] {\n  margin-top: 2em;\n}\n.container[data-v-305b80ef]{\n    font-family: Calibri;\n}\n#domain-name[data-v-305b80ef]{\n    font-size: x-large;\n    font-weight: bolder;\n    padding-left: .2em;\n    background-color: #213d3d;\n    color: white;\n}\n#domain-slug[data-v-305b80ef]{\n    color: #213d3d;\n    font-size: large;\n    -webkit-text-decoration-color: #213d3d;\n            text-decoration-color: #213d3d;\n    text-decoration: underline;\n    animation: blink-animation-data-v-305b80ef 1s steps(5, start) infinite;\n    -webkit-animation: blink-animation-data-v-305b80ef 1s steps(5, start) infinite;\n}\n.card-footer[data-v-305b80ef]{\n    width: 10%;\n    background-color: #213d3d;\n    margin: auto;\n}\n.card-footer[data-v-305b80ef]:hover{\n    background-color: dimgray;\n}\na[data-v-305b80ef]:link {\n    color:white;\n}\na[data-v-305b80ef]:hover {\n    color: darkred;\n}\n#domain-description[data-v-305b80ef]{\n    font-family: \"Comic Sans MS\";\n}\n@keyframes blink-animation-data-v-305b80ef {\nto {\n        visibility: hidden;\n}\n}\n@-webkit-keyframes blink-animation-data-v-305b80ef {\nto {\n        visibility: hidden;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -2814,7 +2842,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.timestamps[data-v-e0a074da] {\n  font-size: 85%;\n  color: rgb(156, 156, 156);\n  margin-top: 1em;\n}\n", ""]);
+exports.push([module.i, "\n.timestamps[data-v-e0a074da] {\n  font-size: 85%;\n  color: rgb(156, 156, 156);\n  margin-top: 1em;\n}\n.container[data-v-e0a074da]{\n    font-family: Calibri;\n}\n#invention-name[data-v-e0a074da]{\n    font-size: x-large;\n    font-weight: bolder;\n    padding-left: .2em;\n    background-color: #213d3d;\n    color: white;\n}\n#domain-name[data-v-e0a074da]{\n    color: #213d3d;\n    font-size: large;\n    -webkit-text-decoration-color: #213d3d;\n            text-decoration-color: #213d3d;\n    text-decoration: underline;\n    animation: blink-animation-data-v-e0a074da 1s steps(5, start) infinite;\n    -webkit-animation: blink-animation-data-v-e0a074da 1s steps(5, start) infinite;\n}\n.card-footer[data-v-e0a074da]{\n    width: 10%;\n    background-color: #213d3d;\n    margin: auto;\n}\n.card-footer[data-v-e0a074da]:hover{\n    background-color: dimgray;\n}\na[data-v-e0a074da]:link {\n    color:white;\n}\na[data-v-e0a074da]:hover {\n    color: darkred;\n}\n#invention-description[data-v-e0a074da]{\n    font-family: \"Comic Sans MS\";\n}\n@keyframes blink-animation-data-v-e0a074da {\nto {\n        visibility: hidden;\n}\n}\n@-webkit-keyframes blink-animation-data-v-e0a074da {\nto {\n        visibility: hidden;\n}\n}\n", ""]);
 
 // exports
 
@@ -21290,25 +21318,26 @@ var render = function() {
         _c("div", { staticClass: "card-content" }, [
           _c("div", { staticClass: "media" }, [
             _c("div", { staticClass: "media-content" }, [
-              _c("p", { staticClass: "title is-4" }, [
+              _c("h3", { attrs: { id: "domain-name" } }, [
                 _vm._v(_vm._s(_vm.domain.name))
               ]),
               _vm._v(" "),
-              _c("p", { staticClass: "subtitle is-6" }, [
+              _c("h4", { attrs: { id: "domain-slug" } }, [
                 _vm._v(_vm._s(_vm.domain.slug))
               ])
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "content" }, [
-            _vm._v(
-              "\n        " + _vm._s(_vm.domain.description) + "\n        "
-            ),
+            _c("p", { attrs: { id: "domain-description" } }, [
+              _vm._v(_vm._s(_vm.domain.description))
+            ]),
+            _vm._v(" "),
             _c("p", { staticClass: "timestamps" }, [
               _c("i", { staticClass: "fas fa-plus" }),
               _vm._v(
                 " " +
-                  _vm._s(_vm.dateFormat(_vm.domain.created_at)) +
+                  _vm._s(_vm.formatDate(_vm.domain.created_at)) +
                   "\n        "
               )
             ])
@@ -21672,25 +21701,26 @@ var render = function() {
       _c("div", { staticClass: "card-content" }, [
         _c("div", { staticClass: "media" }, [
           _c("div", { staticClass: "media-content" }, [
-            _c("p", { staticClass: "title is-4" }, [
+            _c("p", { attrs: { id: "invention-name" } }, [
               _vm._v(_vm._s(_vm.invention.name))
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "subtitle is-6" }, [
+            _c("p", { attrs: { id: "domain-name" } }, [
               _vm._v(_vm._s(_vm.domainName))
             ])
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "content" }, [
-          _vm._v(
-            "\n        " + _vm._s(_vm.invention.description) + "\n        "
-          ),
+          _c("p", { attrs: { id: "invention-description" } }, [
+            _vm._v(_vm._s(_vm.invention.description))
+          ]),
+          _vm._v(" "),
           _c("p", { staticClass: "timestamps" }, [
             _c("i", { staticClass: "fas fa-plus" }),
             _vm._v(
               " " +
-                _vm._s(_vm.dateFormat(_vm.invention.created_at)) +
+                _vm._s(_vm.formatDate(_vm.invention.created_at)) +
                 "\n        "
             )
           ])
