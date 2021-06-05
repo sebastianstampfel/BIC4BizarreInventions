@@ -11714,12 +11714,6 @@ label.panel-block:hover {
 .footer {
   background-color: #fafafa;
   padding: 1rem 2.5rem 2.5rem;
-  border-top: 1px solid rgb(180, 180, 180);
-  color: rgb(105, 105, 105);
-}
-
-.footer p {
-  margin-bottom: 2em;
 }
 
 .main {

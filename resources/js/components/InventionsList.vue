@@ -7,7 +7,7 @@
 
         <table class="table" v-if="inventions.length != 0">
             <thead>
-                <tr>
+                <tr class="table-head">
                     <th class="table-head">ID</th>
                     <th class="table-head">Name</th>
                     <th class="table-head">Description</th>
@@ -17,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="invention in inventions" :key="invention.id" @click="inventionClickHandler(invention.slug)">
+                <tr v-for="invention in inventions" :key="invention.id" @click="inventionClickHandler(invention.slug)" class="list-table-entry">
                     <td>{{ invention.id }}</td>
                     <td><a :href="'/invention/' + invention.slug">{{ invention.name }}</a></td>
                     <td>{{ invention.description }}</td>
@@ -101,33 +101,37 @@ a:hover {
 .container{
     font-family: Calibri;
 }
+
 .table-head{
     background-color: #213d3d;
     color: white;
 }
+</style>
 
-tr:nth-child(even){
+<style lang="scss">
+
+.list-table-entry{
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+.list-table-entry:nth-child(even){
     background-color: #C3FCE693;
 }
 
-tr:nth-child(even):hover{
-    background-color: rgb(184, 201, 194);
-    cursor: pointer;
-}
-
-tr:nth-child(odd){
+.list-table-entry:nth-child(odd){
     background-color: #6F9786D0;
 }
 
-tr:nth-child(odd):hover{
-    background-color: #a3b9b0fb;
+.list-table-entry:hover{
+    background-color: #4e8d8d;
     cursor: pointer;
+    border-color: #213d3d;
+    //border-right: 5px solid #213d3d;
 }
-
 
 .button-bar {
     a {
-        color: white;
+        color: white !important;
         i {
             margin-right: .25em;
         }
