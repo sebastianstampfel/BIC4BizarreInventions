@@ -18,7 +18,7 @@
       </div>
 
       <footer class="card-footer">
-        <a :href="domain.slug + '/edit'" class="card-footer-item">Edit</a>
+        <a :href="domain.slug + '/edit'" class="button is-link">Edit</a>
         <!-- <a :href="#" class="card-footer-item">Delete</a> -->
       </footer>
     </div>
@@ -72,6 +72,18 @@ export default {
 }
 
 .inventionslist {
-  margin-top: 2em;
+    margin-top: 2em;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+a.button{
+    font-size:16px;
+    display: block;
+    width: 113px;
+    margin: auto;
 }
 </style>

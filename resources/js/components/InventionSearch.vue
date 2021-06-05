@@ -92,4 +92,27 @@ export default {
 </script>
 
 <style scoped>
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+input[type=text]:focus {
+    width: 100%;
+}
+.label.label{
+    font-size:25px;
+    border: 2px solid powderblue;
+    padding: 30px;
+    font-family: "Arial Black", sans-serif;
+    width: 225px;
+}
 </style>

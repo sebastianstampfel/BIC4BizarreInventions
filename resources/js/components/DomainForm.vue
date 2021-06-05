@@ -123,4 +123,18 @@ export default {
 </script>
 
 <style scoped>
+.label.label{
+    font-size:25px;
+}
+control{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+input[type=text] {
+    border: 2px solid deepskyblue;
+    border-radius: 4px;
+}
+textarea[type=text]{
+    border: 2px solid deepskyblue;
+    border-radius: 4px;
+}
 </style>
