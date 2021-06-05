@@ -11776,7 +11776,8 @@ h1 {
 }
 
 #navbarMain a {
-  color: white;
+  color: #a1afbf;
+  font-weight: bold;
 }
 
 #navbarMain a:hover {
