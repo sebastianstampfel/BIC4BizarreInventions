@@ -4,7 +4,7 @@
 @section('content')
     <section class="section">
         <div class="container">
-            <h1>List invention</h1>
+            <h1>All inventions</h1>
             <inventions-list :inventions="{{ $invention }}"></inventions-list>
             <!-- {{ $invention }} -->
         </div>
