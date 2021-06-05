@@ -67,7 +67,6 @@
                         <a class="navbar-link {{ request()->routeIs('invention.index') || request()->routeIs('invention.create') || request()->routeIs('invention.search') ? 'is-active' : '' }}">
                             Inventions
                         </a>
-
                         <div class="navbar-dropdown">
                             <a class="navbar-item {{ request()->routeIs('invention.index') ? 'is-active' : '' }}"
                                href="{{ route('invention.index') }}">

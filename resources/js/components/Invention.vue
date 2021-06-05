@@ -4,15 +4,15 @@
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <p class="title is-4">{{ invention.name }}</p>
-            <p class="subtitle is-6">{{ domainName }}</p>
+            <p id="invention-name">{{ invention.name }}</p>
+            <p id="domain-name">{{ domainName }}</p>
           </div>
         </div>
 
         <div class="content">
-          {{ invention.description }}
+          <p id="invention-description">{{ invention.description }}</p>
           <p class="timestamps">
-            <i class="fas fa-plus"></i> {{ dateFormat(invention.created_at) }}
+            <i class="fas fa-plus"></i> {{ formatDate(invention.created_at) }}
           </p>
         </div>
       </div>
@@ -30,8 +30,33 @@ export default {
   components: {},
   name: "Invention",
   data() {
+      const months = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December'
+      ];
+      const days = [
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday'
+      ]
     return {
       domainName: "",
+        months,
+        days
     };
   },
   methods: {
@@ -39,6 +64,14 @@ export default {
       const date = new Date(timestamp);
       return date.toLocaleString("de-AT");
     },
+      formatDate(dateStr){
+          const timestamp = Date.parse(dateStr);
+          if (isNaN(timestamp) == false) {
+              const date = new Date(timestamp);
+              return this.days[date.getDay()] + ", " + date.getDate() + ". " + this.months[date.getMonth()] + " " + date.getFullYear();
+          }
+          return dateStr;
+      }
   },
   created() {
     // Backend provides no way to lookup a domain by id,
@@ -62,5 +95,52 @@ export default {
   font-size: 85%;
   color: rgb(156, 156, 156);
   margin-top: 1em;
+}
+
+.container{
+    font-family: Calibri;
+}
+
+#invention-name{
+    font-size: x-large;
+    font-weight: bolder;
+    padding-left: .2em;
+    background-color: #213d3d;
+    color: white;
+}
+
+#domain-name{
+    color: #213d3d;
+    font-size: large;
+    text-decoration-color: #213d3d;
+    text-decoration: underline;
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+.card-footer{
+    width: 10%;
+    background-color: #213d3d;
+    margin: auto;
+}
+.card-footer:hover{
+    background-color: #386565;
+}
+
+a:link {
+    color:white;
+}
+#invention-description{
+    font-family: "Comic Sans MS";
+}
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
 }
 </style>
