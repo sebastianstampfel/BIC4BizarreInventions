@@ -144,7 +144,10 @@
 
     <footer class="footer">
         <div class="content has-text-centered">
-            <small>Here comes some footer</small>
+            <p>
+                <small>BIC4-IE - Library of Bizarre Inventions</small><br/>
+                <small>Milan Kollmann, Erwin Li, Benjamin Wiesbauer, Sebastian Stampfel</small>
+            </p>
         </div>
     </footer>
 </div>
