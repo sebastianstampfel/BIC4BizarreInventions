@@ -2814,7 +2814,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.timestamps[data-v-e0a074da] {\n  font-size: 85%;\n  color: rgb(156, 156, 156);\n  margin-top: 1em;\n}\n", ""]);
+exports.push([module.i, "\n.timestamps[data-v-e0a074da] {\r\n  font-size: 85%;\r\n  color: rgb(156, 156, 156);\r\n  margin-top: 1em;\n}\r\n", ""]);
 
 // exports
 
@@ -35428,8 +35428,8 @@ var Form = /*#__PURE__*/function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\milan\Documents\04Semester\IE\projects\BIC4BizarreInventions\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\milan\Documents\04Semester\IE\projects\BIC4BizarreInventions\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\rockd\BIC4BizarreInventions\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\rockd\BIC4BizarreInventions\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
