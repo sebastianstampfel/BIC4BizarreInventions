@@ -80,12 +80,13 @@ export default {
     a:link {
         color: darkblue;
     }
-    a:visited {
-        color: #2463fc;
+    a:visited{
+        color: darkblue;
     }
     a:hover {
         color: darkred;
     }
+
     .container{
         font-family: Calibri;
     }
@@ -99,6 +100,4 @@ export default {
     tr:nth-child(odd){
         background-color: #6F9786D0;
     }
-
-
 </style>

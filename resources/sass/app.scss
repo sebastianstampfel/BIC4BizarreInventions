@@ -27,13 +27,13 @@ h1{
 
 #navbarMain{
     a {
-        color: #a1afbf;
-        font-weight: bold;
+        color: whitesmoke;
     }
 
     a:hover {
         color: #213d3d;
         font-weight: bold;
+        background-color: whitesmoke;
     }
 }
 .navbar-dropdown{
@@ -42,6 +42,17 @@ h1{
 
 .card-header{
     background-color: #213d3d;
+}
+
+.button.is-primary{
+    background-color: #747474;
+}
+
+
+.navbar-item.has-dropdown:focus .navbar-link,
+.navbar-item.has-dropdown:hover .navbar-link,
+.navbar-item.has-dropdown.is-active .navbar-link{
+    background-color: #386565;
 }
 
 

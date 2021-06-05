@@ -77,12 +77,13 @@ export default {
     a:link {
         color: darkblue;
     }
-    a:visited {
-        color: #2463fc;
+    a:visited{
+        color: darkblue;
     }
     a:hover {
         color: darkred;
     }
+
     .container{
         font-family: Calibri;
     }
