@@ -45,9 +45,13 @@ h1{
 }
 
 .button.is-primary{
-    background-color: #747474;
+    background-color: #4e4a4a;
 }
 
+.button.is-secondary{
+    background-color: #847b7b;
+    border-style: none;
+}
 
 .navbar-item.has-dropdown:focus .navbar-link,
 .navbar-item.has-dropdown:hover .navbar-link,

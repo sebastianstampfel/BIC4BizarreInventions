@@ -110,7 +110,7 @@
                         <div class="buttons">
                             <a class="button is-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
                             @if (Route::has('register'))
-                                <a class="button is-light" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="button is-secondary" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                         </div>
                     </div>
