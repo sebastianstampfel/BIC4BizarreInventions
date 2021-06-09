@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" class="button is-large is-primary is-outlined is-fullwidth">
+                                <button type="submit" class="button is-primary is-fullwidth">
                                     {{ __('Login') }}
                                 </button>
                             </form>
