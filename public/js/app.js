@@ -1945,15 +1945,29 @@ __webpack_require__.r(__webpack_exports__);
   },
   name: "Domain",
   data: function data() {
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     return {
       domainName: "",
-      inventions: []
+      inventions: [],
+      months: months,
+      days: days
     };
   },
   methods: {
     dateFormat: function dateFormat(timestamp) {
       var date = new Date(timestamp);
       return date.toLocaleString("de-AT");
+    },
+    formatDate: function formatDate(dateStr) {
+      var timestamp = Date.parse(dateStr);
+
+      if (isNaN(timestamp) == false) {
+        var date = new Date(timestamp);
+        return this.days[date.getDay()] + ", " + date.getDate() + ". " + this.months[date.getMonth()] + " " + date.getFullYear();
+      }
+
+      return dateStr;
     }
   },
   created: function created() {
@@ -2295,14 +2309,28 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   name: "Invention",
   data: function data() {
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     return {
-      domainName: ""
+      domainName: "",
+      months: months,
+      days: days
     };
   },
   methods: {
     dateFormat: function dateFormat(timestamp) {
       var date = new Date(timestamp);
       return date.toLocaleString("de-AT");
+    },
+    formatDate: function formatDate(dateStr) {
+      var timestamp = Date.parse(dateStr);
+
+      if (isNaN(timestamp) == false) {
+        var date = new Date(timestamp);
+        return this.days[date.getDay()] + ", " + date.getDate() + ". " + this.months[date.getMonth()] + " " + date.getFullYear();
+      }
+
+      return dateStr;
     }
   },
   created: function created() {
@@ -2792,7 +2820,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.timestamps[data-v-305b80ef] {\r\n  font-size: 85%;\r\n  color: rgb(156, 156, 156);\r\n  margin-top: 1em;\n}\n.inventionslist[data-v-305b80ef] {\r\n    margin-top: 2em;\r\n    border-collapse: collapse;\r\n    margin: 25px 0;\r\n    font-size: 0.9em;\r\n    font-family: sans-serif;\r\n    min-width: 400px;\r\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);\n}\na.button[data-v-305b80ef]{\r\n    font-size:16px;\r\n    display: block;\r\n    width: 113px;\r\n    margin: auto;\n}\r\n", ""]);
+exports.push([module.i, "\n.timestamps[data-v-305b80ef] {\n      font-size: 85%;\n      color: rgb(156, 156, 156);\n      margin-top: 1em;\n}\n.inventionslist[data-v-305b80ef] {\n      margin-top: 2em;\n}\n.container[data-v-305b80ef]{\n        font-family: Calibri;\n}\n#domain-name[data-v-305b80ef]{\n        font-size: x-large;\n        font-weight: bolder;\n        padding-left: .2em;\n        background-color: #213d3d;\n        color: white;\n}\n#domain-slug[data-v-305b80ef]{\n        color: #213d3d;\n        font-size: large;\n        -webkit-text-decoration-color: #213d3d;\n                text-decoration-color: #213d3d;\n        text-decoration: underline;\n        animation: blink-animation-data-v-305b80ef 1s steps(5, start) infinite;\n        -webkit-animation: blink-animation-data-v-305b80ef 1s steps(5, start) infinite;\n}\n.card-footer[data-v-305b80ef]{\n        width: 10%;\n        background-color: #213d3d;\n        margin: auto;\n}\n.card-footer[data-v-305b80ef]:hover{\n        background-color: #386565;\n}\na[data-v-305b80ef]:link {\n        color:white;\n}\n#domain-description[data-v-305b80ef]{\n        font-family: \"Comic Sans MS\";\n}\n@keyframes blink-animation-data-v-305b80ef {\nto {\n            visibility: hidden;\n}\n}\n@-webkit-keyframes blink-animation-data-v-305b80ef {\nto {\n            visibility: hidden;\n}\n}\n\n/* .inventionslist {\n    margin-top: 2em;\n    border-collapse: collapse;\n    margin: 25px 0;\n    font-size: 0.9em;\n    font-family: sans-serif;\n    min-width: 400px;\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);\n}\na.button{\n    font-size:16px;\n    display: block;\n    width: 113px;\n    margin: auto;\n} */\n", ""]);
 
 // exports
 
@@ -2868,7 +2896,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.timestamps[data-v-e0a074da] {\r\n  font-size: 85%;\r\n  color: rgb(156, 156, 156);\r\n  margin-top: 1em;\n}\r\n", ""]);
+exports.push([module.i, "\n.timestamps[data-v-e0a074da] {\r\n  font-size: 85%;\r\n  color: rgb(156, 156, 156);\r\n  margin-top: 1em;\n}\n.container[data-v-e0a074da]{\r\n    font-family: Calibri;\n}\n#invention-name[data-v-e0a074da]{\r\n    font-size: x-large;\r\n    font-weight: bolder;\r\n    padding-left: .2em;\r\n    background-color: #213d3d;\r\n    color: white;\n}\n#domain-name[data-v-e0a074da]{\r\n    color: #213d3d;\r\n    font-size: large;\r\n    -webkit-text-decoration-color: #213d3d;\r\n            text-decoration-color: #213d3d;\r\n    text-decoration: underline;\r\n    animation: blink-animation-data-v-e0a074da 1s steps(5, start) infinite;\r\n    -webkit-animation: blink-animation-data-v-e0a074da 1s steps(5, start) infinite;\n}\n.card-footer[data-v-e0a074da]{\r\n    width: 10%;\r\n    background-color: #213d3d;\r\n    margin: auto;\n}\n.card-footer[data-v-e0a074da]:hover{\r\n    background-color: #386565;\n}\na[data-v-e0a074da]:link {\r\n    color:white;\n}\n#invention-description[data-v-e0a074da]{\r\n    font-family: \"Comic Sans MS\";\n}\n@keyframes blink-animation-data-v-e0a074da {\nto {\r\n        visibility: hidden;\n}\n}\n@-webkit-keyframes blink-animation-data-v-e0a074da {\nto {\r\n        visibility: hidden;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -21483,25 +21511,26 @@ var render = function() {
         _c("div", { staticClass: "card-content" }, [
           _c("div", { staticClass: "media" }, [
             _c("div", { staticClass: "media-content" }, [
-              _c("p", { staticClass: "title is-4" }, [
+              _c("h3", { attrs: { id: "domain-name" } }, [
                 _vm._v(_vm._s(_vm.domain.name))
               ]),
               _vm._v(" "),
-              _c("p", { staticClass: "subtitle is-6" }, [
+              _c("h4", { attrs: { id: "domain-slug" } }, [
                 _vm._v(_vm._s(_vm.domain.slug))
               ])
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "content" }, [
-            _vm._v(
-              "\n        " + _vm._s(_vm.domain.description) + "\n        "
-            ),
+            _c("p", { attrs: { id: "domain-description" } }, [
+              _vm._v(_vm._s(_vm.domain.description))
+            ]),
+            _vm._v(" "),
             _c("p", { staticClass: "timestamps" }, [
               _c("i", { staticClass: "fas fa-plus" }),
               _vm._v(
                 " " +
-                  _vm._s(_vm.dateFormat(_vm.domain.created_at)) +
+                  _vm._s(_vm.formatDate(_vm.domain.created_at)) +
                   "\n        "
               )
             ])
@@ -21849,25 +21878,26 @@ var render = function() {
       _c("div", { staticClass: "card-content" }, [
         _c("div", { staticClass: "media" }, [
           _c("div", { staticClass: "media-content" }, [
-            _c("p", { staticClass: "title is-4" }, [
+            _c("p", { attrs: { id: "invention-name" } }, [
               _vm._v(_vm._s(_vm.invention.name))
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "subtitle is-6" }, [
+            _c("p", { attrs: { id: "domain-name" } }, [
               _vm._v(_vm._s(_vm.domainName))
             ])
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "content" }, [
-          _vm._v(
-            "\n        " + _vm._s(_vm.invention.description) + "\n        "
-          ),
+          _c("p", { attrs: { id: "invention-description" } }, [
+            _vm._v(_vm._s(_vm.invention.description))
+          ]),
+          _vm._v(" "),
           _c("p", { staticClass: "timestamps" }, [
             _c("i", { staticClass: "fas fa-plus" }),
             _vm._v(
               " " +
-                _vm._s(_vm.dateFormat(_vm.invention.created_at)) +
+                _vm._s(_vm.formatDate(_vm.invention.created_at)) +
                 "\n        "
             )
           ])
@@ -22283,10 +22313,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container button-bar" }, [
       _c(
         "a",
-        {
-          staticClass: "button is-info",
-          attrs: { href: "/search/inventions" }
-        },
+        { staticClass: "button is-info", attrs: { href: "/search/invention" } },
         [_c("i", { staticClass: "fas fa-search" }), _vm._v("Search")]
       ),
       _vm._v(" "),
@@ -35649,8 +35676,8 @@ var Form = /*#__PURE__*/function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\rockd\BIC4BizarreInventions\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\rockd\BIC4BizarreInventions\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\milan\Documents\04Semester\IE\projects\BIC4BizarreInventions\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\milan\Documents\04Semester\IE\projects\BIC4BizarreInventions\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

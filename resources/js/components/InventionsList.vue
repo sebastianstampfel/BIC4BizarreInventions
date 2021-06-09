@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="container button-bar">
-      <a href="/search/inventions" class="button is-info"
+      <a href="/search/invention" class="button is-info"
         ><i class="fas fa-search"></i>Search</a
       >
       <a href="/invention/create" class="button is-success"
