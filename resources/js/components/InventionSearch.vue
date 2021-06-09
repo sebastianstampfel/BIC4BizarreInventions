@@ -45,10 +45,9 @@
           v-text="form.errors.get('title')"
         />
       </div>
-
       <button
         type="submit"
-        class="button is-primary is-outlined is-fullwidth"
+        class="button is-primary"
         v-text="edit ? 'Save' : 'Search'"
         :disabled="loading"
       />
@@ -114,5 +113,9 @@ input[type=text]:focus {
     padding: 30px;
     font-family: "Arial Black", sans-serif;
     width: 225px;
+}
+.button.is-primary{
+    width: 100%;
+    margin-bottom: 1em;
 }
 </style>

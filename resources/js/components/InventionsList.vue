@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="container button-bar">
-      <a href="/search/invention" class="button is-info"
+      <a href="/search/invention" class="button is-primary"
         ><i class="fas fa-search"></i>Search</a
       >
-      <a href="/invention/create" class="button is-success"
+      <a href="/invention/create" class="button is-secondary"
         ><i class="fas fa-plus"></i>Add new invention</a
       >
     </div>

@@ -46,7 +46,7 @@
 
       <button
         type="submit"
-        class="button is-large is-primary is-outlined is-fullwidth"
+        class="button is-primary"
         v-text="edit ? 'Save' : 'Post'"
         :disabled="loading"
       />
@@ -136,5 +136,9 @@ input[type=text] {
 textarea[type=text]{
     border: 2px solid deepskyblue;
     border-radius: 4px;
+}
+
+.button.is-primary{
+    width: 100%;
 }
 </style>

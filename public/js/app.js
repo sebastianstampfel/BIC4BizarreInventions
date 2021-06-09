@@ -2607,7 +2607,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 var form = new Form({
   q: ""
@@ -2839,7 +2838,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.label.label[data-v-2c06275a]{\r\n    font-size:25px;\n}\ncontrol[data-v-2c06275a]{\r\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);\n}\ninput[type=text][data-v-2c06275a] {\r\n    border: 2px solid deepskyblue;\r\n    border-radius: 4px;\n}\ntextarea[type=text][data-v-2c06275a]{\r\n    border: 2px solid deepskyblue;\r\n    border-radius: 4px;\n}\r\n", ""]);
+exports.push([module.i, "\n.label.label[data-v-2c06275a]{\n    font-size:25px;\n}\ncontrol[data-v-2c06275a]{\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);\n}\ninput[type=text][data-v-2c06275a] {\n    border: 2px solid deepskyblue;\n    border-radius: 4px;\n}\ntextarea[type=text][data-v-2c06275a]{\n    border: 2px solid deepskyblue;\n    border-radius: 4px;\n}\n.button.is-primary[data-v-2c06275a]{\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -2877,7 +2876,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\na[data-v-63bdb5d2]:link {\r\n  color: darkblue;\n}\na[data-v-63bdb5d2]:visited {\r\n  color: #2463fc;\n}\na[data-v-63bdb5d2]:hover {\r\n  color: darkred;\n}\n.container[data-v-63bdb5d2] {\r\n  font-family: Calibri;\n}\n.table-head[data-v-63bdb5d2] {\r\n  background-color: #213d3d;\r\n  color: white;\n}\r\n", ""]);
+exports.push([module.i, "\na[data-v-63bdb5d2]:link {\n  color: darkblue;\n}\na[data-v-63bdb5d2]:visited {\n  color: #2463fc;\n}\na[data-v-63bdb5d2]:hover {\n  color: darkred;\n}\n.container[data-v-63bdb5d2] {\n  font-family: Calibri;\n}\n.table-head[data-v-63bdb5d2] {\n  background-color: #213d3d;\n  color: white;\n}\n", ""]);
 
 // exports
 
@@ -2915,7 +2914,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.label.label[data-v-46963ef7]{\r\n    font-size:25px;\n}\nbody[data-v-46963ef7] {\r\n    margin: 0;\r\n    padding: 0;\r\n    background-color: #004882;\n}\n.select[data-v-46963ef7] {\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\n}\n.select select[data-v-46963ef7] {\r\n    background-color: dodgerblue;\r\n    color: white;\r\n    padding: 12px;\r\n    width: 250px;\r\n    border: none;\r\n    font-size: 20px;\r\n    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);\r\n    -webkit-appearance: button;\r\n    outline: none;\n}\n.select[data-v-46963ef7]::before {\r\n    content: \"\\F13A\";\r\n    font-family: FontAwesome;\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    width: 20%;\r\n    height: 100%;\r\n    text-align: center;\r\n    font-size: 28px;\r\n    line-height: 45px;\r\n    color: rgba(255, 255, 255, 0.5);\r\n    background-color: rgba(255, 255, 255, 0.1);\r\n    pointer-events: none;\n}\n.select[data-v-46963ef7]:hover::before {\r\n    color: rgba(255, 255, 255, 0.6);\r\n    background-color: rgba(255, 255, 255, 0.2);\n}\n.select select option[data-v-46963ef7] {\r\n    padding: 30px;\n}\n.input[data-v-46963ef7]{\r\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);\n}\n.textarea[data-v-46963ef7]{\r\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);\n}\ninput[type=text][data-v-46963ef7] {\r\n    border: 2px solid deepskyblue;\r\n    border-radius: 4px;\n}\ntextarea[type=text][data-v-46963ef7]{\r\n    border: 2px solid deepskyblue;\r\n    border-radius: 4px;\n}\r\n", ""]);
+exports.push([module.i, "\n.label.label[data-v-46963ef7]{\n    font-size:25px;\n}\nbody[data-v-46963ef7] {\n    margin: 0;\n    padding: 0;\n    background-color: #004882;\n}\n.select[data-v-46963ef7] {\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n}\n.select select[data-v-46963ef7] {\n    background-color: dodgerblue;\n    color: white;\n    padding: 12px;\n    width: 250px;\n    border: none;\n    font-size: 20px;\n    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);\n    -webkit-appearance: button;\n    outline: none;\n}\n.select[data-v-46963ef7]::before {\n    content: \"\\F13A\";\n    font-family: FontAwesome;\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 20%;\n    height: 100%;\n    text-align: center;\n    font-size: 28px;\n    line-height: 45px;\n    color: rgba(255, 255, 255, 0.5);\n    background-color: rgba(255, 255, 255, 0.1);\n    pointer-events: none;\n}\n.select[data-v-46963ef7]:hover::before {\n    color: rgba(255, 255, 255, 0.6);\n    background-color: rgba(255, 255, 255, 0.2);\n}\n.select select option[data-v-46963ef7] {\n    padding: 30px;\n}\n.input[data-v-46963ef7]{\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);\n}\n.textarea[data-v-46963ef7]{\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);\n}\ninput[type=text][data-v-46963ef7] {\n    border: 2px solid deepskyblue;\n    border-radius: 4px;\n}\ntextarea[type=text][data-v-46963ef7]{\n    border: 2px solid deepskyblue;\n    border-radius: 4px;\n}\n.button.is-primary[data-v-46963ef7]{\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -2934,7 +2933,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ninput[type=text][data-v-13278b1b] {\r\n    width: 130px;\r\n    box-sizing: border-box;\r\n    border: 2px solid #ccc;\r\n    border-radius: 4px;\r\n    font-size: 16px;\r\n    background-color: white;\r\n    background-position: 10px 10px;\r\n    background-repeat: no-repeat;\r\n    padding: 12px 20px 12px 40px;\r\n    transition: width 0.4s ease-in-out;\r\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);\n}\ninput[type=text][data-v-13278b1b]:focus {\r\n    width: 100%;\n}\n.label.label[data-v-13278b1b]{\r\n    font-size:25px;\r\n    border: 2px solid powderblue;\r\n    padding: 30px;\r\n    font-family: \"Arial Black\", sans-serif;\r\n    width: 225px;\n}\r\n", ""]);
+exports.push([module.i, "\ninput[type=text][data-v-13278b1b] {\n    width: 130px;\n    box-sizing: border-box;\n    border: 2px solid #ccc;\n    border-radius: 4px;\n    font-size: 16px;\n    background-color: white;\n    background-position: 10px 10px;\n    background-repeat: no-repeat;\n    padding: 12px 20px 12px 40px;\n    transition: width 0.4s ease-in-out;\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);\n}\ninput[type=text][data-v-13278b1b]:focus {\n    width: 100%;\n}\n.label.label[data-v-13278b1b]{\n    font-size:25px;\n    border: 2px solid powderblue;\n    padding: 30px;\n    font-family: \"Arial Black\", sans-serif;\n    width: 225px;\n}\n.button.is-primary[data-v-13278b1b]{\n    width: 100%;\n    margin-bottom: 1em;\n}\n", ""]);
 
 // exports
 
@@ -21541,7 +21540,7 @@ var render = function() {
           _c(
             "a",
             {
-              staticClass: "button is-link",
+              staticClass: "card-footer-item",
               attrs: { href: _vm.domain.slug + "/edit" }
             },
             [_vm._v("Edit")]
@@ -21685,7 +21684,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("button", {
-            staticClass: "button is-large is-primary is-outlined is-fullwidth",
+            staticClass: "button is-primary",
             attrs: { type: "submit", disabled: _vm.loading },
             domProps: { textContent: _vm._s(_vm.edit ? "Save" : "Post") }
           })
@@ -21828,7 +21827,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container button-bar" }, [
       _c(
         "a",
-        { staticClass: "button is-success", attrs: { href: "/domain/create" } },
+        { staticClass: "button is-primary", attrs: { href: "/domain/create" } },
         [_c("i", { staticClass: "fas fa-plus" }), _vm._v("Add new domain")]
       )
     ])
@@ -22131,7 +22130,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("button", {
-            staticClass: "button is-large is-primary is-outlined is-fullwidth",
+            staticClass: "button is-primary",
             attrs: { type: "submit", disabled: _vm.loading },
             domProps: { textContent: _vm._s(_vm.edit ? "Save" : "Post") }
           })
@@ -22219,7 +22218,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("button", {
-            staticClass: "button is-primary is-outlined is-fullwidth",
+            staticClass: "button is-primary",
             attrs: { type: "submit", disabled: _vm.loading },
             domProps: { textContent: _vm._s(_vm.edit ? "Save" : "Search") }
           })
@@ -22313,14 +22312,17 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container button-bar" }, [
       _c(
         "a",
-        { staticClass: "button is-info", attrs: { href: "/search/invention" } },
+        {
+          staticClass: "button is-primary",
+          attrs: { href: "/search/invention" }
+        },
         [_c("i", { staticClass: "fas fa-search" }), _vm._v("Search")]
       ),
       _vm._v(" "),
       _c(
         "a",
         {
-          staticClass: "button is-success",
+          staticClass: "button is-secondary",
           attrs: { href: "/invention/create" }
         },
         [_c("i", { staticClass: "fas fa-plus" }), _vm._v("Add new invention")]

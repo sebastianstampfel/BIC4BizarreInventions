@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="container button-bar">
-      <a href="/domain/create" class="button is-success"
+      <a href="/domain/create" class="button is-primary"
         ><i class="fas fa-plus"></i>Add new domain</a
       >
     </div>

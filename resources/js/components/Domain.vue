@@ -18,7 +18,7 @@
       </div>
 
       <footer class="card-footer">
-        <a :href="domain.slug + '/edit'" class="button is-link">Edit</a>
+        <a :href="domain.slug + '/edit'" class="card-footer-item"">Edit</a>
         <!-- <a :href="#" class="card-footer-item">Delete</a> -->
       </footer>
     </div>

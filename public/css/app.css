@@ -11802,6 +11802,11 @@ h1 {
   border-style: none;
 }
 
+.button.is-primary:hover,
+.button.is-secondary:hover {
+  background-color: #386565;
+}
+
 .navbar-item.has-dropdown:focus .navbar-link,
 .navbar-item.has-dropdown:hover .navbar-link,
 .navbar-item.has-dropdown.is-active .navbar-link {
